@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Password is correct, set session variables and redirect to dashboard or home page
             $_SESSION["id"] = $user["id"];
             $_SESSION["name"] = $user["name"];
-            header("Location: home.php"); // Change this to the appropriate page
+            header("Location: index.php"); // Change this to the appropriate page
             exit();
         } else {
             // Password is incorrect, display error message
