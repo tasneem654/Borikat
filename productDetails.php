@@ -14,59 +14,8 @@
     <title>المتجر | بوركت</title>
 </head>
 <body>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">الرئيسية</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            معالم
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="landmarks.php">مساجد</a>
-                            <a class="dropdown-item" href="sites and wells.php">مواقع وأبار</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Restaurants & Cafes.php">مطاعم ومقاهي</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            أنشطة وترفيه
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="museums.html">متاحف ومراكز</a>
-                            <a class="dropdown-item" href="palm.php">مزارع</a>
-                            <a class="dropdown-item" href="hourses.php">مرابط خيل</a>
-                            <a class="dropdown-item" href="play.php">ملاهي ألعاب</a>
-                            <a class="dropdown-item" href="mall.php">أسواق ومولات</a>
-                            <a class="dropdown-item" href="park.php">حدائق ومنتزهات</a>
-                            <a class="dropdown-item" href="path.php">مماشي</a>
-                            <a class="dropdown-item" href="cinema.php">سينما</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="market.php"> <b>متجر بوركت</b>  </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg-1">
-                <div class="nav-btns ms-auto"> 
-                    <button type="button" class="btn position-relative btn-white">
-                        <i class="fa fa-shopping-cart" style="color: white;"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge bg-red">0</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <?php  include "navbar.php" ?>
+
     <ul class="breadcrumbs" style="margin-top: 3%;">
       <li class="breadcrumbs_item">
         <a href="index.php" class="breadcrumbs_link">الرئيسية</a>

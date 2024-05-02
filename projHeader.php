@@ -1,12 +1,15 @@
+<?php
+        session_start();
+?>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/logoicon.svg" type="image/png" />
-     <link rel="stylesheet" href="museums.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <!-- Include Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800&display=swap');
 
@@ -111,8 +114,67 @@
         .navbar ul li a:hover::after {
             width: 100%; /* Fully cover the link on hover */
         }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-        /*end of header*/`
+        .user-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .user-button {
+            background-color: white; 
+            border: none;
+            color: #5C4A56;
+            padding: 16px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 30px;
+            margin-right:400% ;
+
+        }
+
+        .user-button:hover {
+            background-color: #9c8092;
+        }
+
+        .user-icon {
+            color: white;
+            font-size: 20px;
+        }
+
+        .user-dropdown .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #5c4a56c0;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            right: 0;
+            margin-right:400% ;
+            border-radius: 1vw;
+
+        }
+
+        .user-dropdown .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .user-dropdown .dropdown-content a:hover {
+            background-color: #9c8092;
+            border-radius: 1vw;
+
+        }
+
+        .user-dropdown:hover .dropdown-content {
+            display: block;
+
     </style>
     
 
@@ -133,7 +195,7 @@
             <li class="dropdown-li">
                 <a href="#">أنشطة وترفيه <span class="arrow"></span></a>
                 <ul class="dropdown">
-                    <li><a href="museums.html">متاحف ومراكز</a></li>
+                    <li><a href="museums.php">متاحف ومراكز</a></li>
                     <li><a href="palm.php">مزارع </a></li>
                     <li><a href="hourses.php">مرابط خيل </a></li>
                     <li><a href="play.php">ملاهي ألعاب</a></li>
@@ -146,6 +208,20 @@
 
             <li><a href="market.php">متجر بوركت</a></li>
         </ul>
+        <?php
+        if (isset($_SESSION["id"]) && isset($_SESSION["name"])) {
+            // User is logged in, show the user icon
+            echo '<div class="user-dropdown">
+                    <button class="user-button">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">الملف الشخصي</a>
+                        <a href="logout.php">تسجيل الخروج</a>
+                    </div>
+                </div>';
+        } 
+        ?>
         <img src="images/logo.svg" class="logo">
     </div>
 </body>
