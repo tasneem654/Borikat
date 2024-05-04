@@ -103,7 +103,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> <b>متجر بوركت</b>  </a>
+                        <a class="nav-link" href="market.php"> <b>متجر بوركت</b>  </a>
                     </li>
                 </ul>
             </div>
@@ -115,7 +115,7 @@
                             <i class="fas fa-user"></i>
                         </button>
                         <div class="dropdown-content">
-                            <a href="#">الملف الشخصي</a>
+                            <a href="profile.php">الملف الشخصي</a>
                             <a href="logout.php">تسجيل الخروج</a>
                         </div>
                     </div>';
@@ -125,7 +125,7 @@
             <div class="nav-btns ms-auto">
                 <a href="cart.php" class="btn position-relative btn-white">
                     <i class="fa fa-shopping-cart" style="color: white;"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge bg-red">2</span>
+                    <span class="position-absolute top-0 start-100 translate-middle badge bg-red cart-count">0</span>
                 </a>
             </div>
 

@@ -32,11 +32,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user["password"])) {
-            // Password is correct, set session variables and redirect to dashboard or home page
+            // Password is correct, set session variables and redirect to or home page
             $_SESSION["id"] = $user["id"];
             $_SESSION["name"] = $user["name"];
             header("Location: index.php"); // Change this to the appropriate page
             exit();
+
         } else {
             // Password is incorrect, display error message
             echo "Invalid email or password.<a href='login.php'>Login here</a>";

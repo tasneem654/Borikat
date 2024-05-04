@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style/Restaurant1.css" />
+    <link rel="stylesheet" href="style/BitWardRestaurant.css" />
     <link rel="icon" href="images/Group green.svg" type="image/png" />
     <link
       rel="stylesheet"
@@ -41,8 +41,12 @@
     </ul>
     <div class="Restaurant">
       <div class="Restaurant-description">
+        <br>
+        
         <h1>  مطعم بيت ورد   </h1>
-        <p> التقييم 4.7</p>
+        <br>
+        <br>
+
       </div>
       <div class="Quba-icons">
         <button
@@ -75,5 +79,23 @@
 
     <br />
     <br />
+    <br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br>
+
+    <div class="reviews">
+      <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+      <div class="elfsight-app-9e21f022-8486-41dd-9c9a-4741d12bcf48" data-elfsight-app-lazy></div>
+
+
+    </div>
+    <br>
   </body>
 </html>

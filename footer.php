@@ -263,9 +263,7 @@
                             <li class="menu-item menu-item-type-post_type menu-item-object-product">
                                 <a href="Restaurants & Cafes.php"> مطاعم ومقاهي</a>
                             </li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-product">
-                                <a href="#">تقويم الفعاليات</a>
-                            </li>
+                          
                             <li class="menu-item menu-item-type-post_type menu-item-object-product">
                                 <a href="#">متجر بوركت</a>
                             </li>

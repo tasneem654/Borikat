@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style/Restaurant.css" />
+    <link rel="stylesheet" href="style/AvanRestaurant.css" />
     <link rel="icon" href="images/Group green.svg" type="image/png" />
     <link
       rel="stylesheet"
@@ -41,8 +41,9 @@
     </ul>
     <div class="Restaurant">
       <div class="Restaurant-description">
+        <br>
         <h1>  أڤانجارديا  </h1>
-        <p> التقييم 4.8</p>
+        <br><br>
       </div>
       <div class="Quba-icons">
         <button
@@ -74,5 +75,20 @@
 
     <br />
     <br />
+    <br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br />
+    <div class="reviews">
+      <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+      <div class="elfsight-app-02d2b1ee-cbb4-45e7-b709-09507b05ed8e" data-elfsight-app-lazy></div>
+
+
+    </div>
   </body>
 </html>

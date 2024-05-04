@@ -49,7 +49,7 @@
                     <div class="overlay-re"></div>
                     <div class="restaurant-info">
                         <h3>مطعم ميماز</h3>
-                        <p>التقييم: 4.9</p>
+                        <p>التقييم: 4.7</p>
                         <p>الموقع: طريق الملك عبدالله</p>
                         <a href="Memaz.php" class="read-more">
                             المزيد <i class="fas fa-chevron-left"></i>
@@ -62,7 +62,7 @@
                     <div class="overlay-re"></div>
                     <div class="restaurant-info">
                         <h3>مطعم أفنجارديا</h3>
-                        <p>التقييم: 4.8</p>
+                        <p>التقييم: 4.1</p>
                         <p>الموقع: بوليفارد قباء</p>
                         <a href="Avanguardia.php" class="read-more">
                             المزيد <i class="fas fa-chevron-left"></i> 
@@ -74,7 +74,7 @@
                     <div class="overlay-re"></div>
                     <div class="restaurant-info">
                         <h3>مطعم بيت ورد</h3>
-                        <p>التقييم: 4.7</p>
+                        <p>التقييم: 4.1</p>
                         <p>الموقع: بوليفارد العروبة</p>
                         <a href="Beit ward.php" class="read-more">
                             المزيد <i class="fas fa-chevron-left"></i>

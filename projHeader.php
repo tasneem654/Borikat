@@ -216,7 +216,7 @@
                         <i class="fas fa-user"></i>
                     </button>
                     <div class="dropdown-content">
-                        <a href="#">الملف الشخصي</a>
+                        <a href="profile.php">الملف الشخصي</a>
                         <a href="logout.php">تسجيل الخروج</a>
                     </div>
                 </div>';

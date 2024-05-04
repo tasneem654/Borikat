@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style/Restaurant.css" />
+    <link rel="stylesheet" href="style/MemazRestaurant.css" />
     <link rel="icon" href="images/Group green.svg" type="image/png" />
     <link
       rel="stylesheet"
@@ -41,8 +41,10 @@
     </ul>
     <div class="Restaurant">
       <div class="Restaurant-description">
+        <br>
         <h1>  مطعم  ميماز  </h1>
-        <p> التقييم 4.9</p>
+        <br/>
+        <br/>
       </div>
       <div class="Quba-icons">
         <button
@@ -68,7 +70,24 @@
       <p>
         مواقف سيارات - جلسات خارجية - جلسات عوائل - جلسات أفراد
     </div>
-
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br><br><br>
+    <div class="reviews">
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+    <div class="elfsight-app-1a763464-1482-40a8-85e0-2a0727aba251" data-elfsight-app-lazy></div>
+    </div>
     <br />
     <br />
   </body>

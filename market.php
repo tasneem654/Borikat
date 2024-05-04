@@ -62,7 +62,7 @@
                     <div class = "text-center">
                         <p class = "text-capitalize mt-3 mb-1">باب المسجد النبوي (تعليقة مفاتيح)</p>
                         <span class = "fw-bold d-block">40 SAR</span>
-                        <a href="<?php echo isset($_SESSION['id']) ? 'cart.php' : 'login.php'; ?>" class="btn btn-primary mt-3">إضافة إلى السلة</a>
+                        <a href="<?php echo isset($_SESSION['id']) ? 'cart.php' : 'login.php'; ?>" class="btn btn-primary mt-3" onclick="addToCart(1, 40);">إضافة إلى السلة</a>
                     </div>
                 </div>
 
@@ -73,7 +73,7 @@
                     <div class = "text-center">
                         <p class = "text-capitalize mt-3 mb-1">المحراب النبوي الشريف (تعليقة مفاتيح)</p>
                         <span class = "fw-bold d-block">40 SAR</span>
-                        <a href = "#" class = "btn btn-primary mt-3">إضافة إلى السلة</a>
+                        <a href="<?php echo isset($_SESSION['id']) ? 'cart.php' : 'login.php'; ?>" class="btn btn-primary mt-3" onclick="addToCart(2, 40);">إضافة إلى السلة</a>
                     </div>
                 </div>
 
@@ -84,7 +84,7 @@
                     <div class = "text-center">
                         <p class = "text-capitalize mt-3 mb-1">ميدالية روح المدينة</p>
                         <span class = "fw-bold d-block">40 SAR</span>
-                        <a href = "#" class = "btn btn-primary mt-3">إضافة إلى السلة</a>
+                        <a href="<?php echo isset($_SESSION['id']) ? 'cart.php' : 'login.php'; ?>" class="btn btn-primary mt-3" onclick="addToCart(3, 40);">إضافة إلى السلة</a>
                     </div>
                 </div>
 
@@ -96,7 +96,7 @@
                     <div class = "text-center">
                         <p class = "text-capitalize mt-3 mb-1">ملصق المسجد النبوي</p>
                         <span class = "fw-bold d-block">10 SAR</span>
-                        <a href = "#" class = "btn btn-primary mt-3">إضافة إلى السلة</a>
+                        <a href="<?php echo isset($_SESSION['id']) ? 'cart.php' : 'login.php'; ?>" class="btn btn-primary mt-3" onclick="addToCart(4, 10);">إضافة إلى السلة</a>
                     </div>
                 </div>
 
@@ -108,7 +108,7 @@
                     <div class = "text-center">
                         <p class = "text-capitalize mt-3 mb-1">مجموعة روح (دبوس)</p>
                         <span class = "fw-bold d-block">75 SAR</span>
-                        <a href = "#" class = "btn btn-primary mt-3">إضافة إلى السلة</a>
+                        <a href = "<?php echo isset($_SESSION['id']) ? 'cart.php' : 'login.php'; ?>" class="btn btn-primary mt-3" onclick="addToCart(5, 75);" class = "btn btn-primary mt-3">إضافة إلى السلة</a>
                     </div>
                 </div>
                 <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
@@ -118,7 +118,7 @@
                     <div class = "text-center">
                         <p class = "text-capitalize mt-3 mb-1">مجموعة ريحان (دبوس) </p>
                         <span class = "fw-bold d-block">75 SAR</span>
-                        <a href = "#" class = "btn btn-primary mt-3">إضافة إلى السلة</a>
+                        <a href = "<?php echo isset($_SESSION['id']) ? 'cart.php' : 'login.php'; ?>" class="btn btn-primary mt-3" onclick="addToCart(6, 75);" class = "btn btn-primary mt-3">إضافة إلى السلة</a>
                     </div>
                 </div>
                 <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
@@ -128,7 +128,7 @@
                     <div class = "text-center">
                         <p class = "text-capitalize mt-3 mb-1">دبوس النجمة الثمانية</p>
                         <span class = "fw-bold d-block">30 SAR</span>
-                        <a href = "#" class = "btn btn-primary mt-3">إضافة إلى السلة</a>
+                        <a href = "<?php echo isset($_SESSION['id']) ? 'cart.php' : 'login.php'; ?>" class="btn btn-primary mt-3" onclick="addToCart(7, 30);" class = "btn btn-primary mt-3">إضافة إلى السلة</a>
                     </div>
                 </div>
                 <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
@@ -138,13 +138,42 @@
                     <div class = "text-center">
                         <p class = "text-capitalize mt-3 mb-1">سوار النجمة الثمانية </p>
                         <span class = "fw-bold d-block">55 SAR</span>
-                        <a href = "#" class = "btn btn-primary mt-3">إضافة إلى السلة</a>
+                        <a href = "<?php echo isset($_SESSION['id']) ? 'cart.php' : 'login.php'; ?>" class="btn btn-primary mt-3" onclick="addToCart(8, 55);" class = "btn btn-primary mt-3">إضافة إلى السلة</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- end of special products -->
+
+    <script>
+    function addToCart(productId, price) {
+        fetch('add_to_cart.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `product_id=${productId}&price=${price}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                alert('Item added to cart');
+                const cartCountElement = document.querySelector('.cart-count');
+            if (cartCountElement) {
+                cartCountElement.textContent = data.cartCount;
+                console.log("Cart count updated to:", data.cartCount);
+            } else {
+                console.error('Cart count element not found in the navbar.');
+            }
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+    </script>
+
 
     <footer>
         <!-- Include the footer content using PHP include -->

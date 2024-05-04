@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -5,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/logoicon.svg" type="image/png" />
     <link rel="stylesheet" href="style/index.css">
-    <!-- Include Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <!-- Include Font Awesome CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800&display=swap');
@@ -53,6 +54,7 @@
             margin-right:400% ;
             border-radius: 1vw;
 
+
         }
 
         .user-dropdown .dropdown-content a {
@@ -70,6 +72,7 @@
 
         .user-dropdown:hover .dropdown-content {
             display: block;
+        }
     </style>
     <title>الرئيسية | بوركت</title>
 
@@ -103,23 +106,21 @@
             
             <li><a href="market.php">متجر بوركت</a></li>
         </ul>
-        <?php
-        session_start();
-        if (isset($_SESSION["id"]) && isset($_SESSION["name"])) {
-            // User is logged in, show the user icon
-            echo '<div class="user-dropdown">
-                    <button class="user-button">
-                        <i class="fas fa-user"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="profile.php">الملف الشخصي</a>
-                        <a href="logout.php">تسجيل الخروج</a>
-                    </div>
-                </div>';
-        } 
-        ?>
+
+
+        <!-- User Dropdown Button -->
+        <div class="user-dropdown">
+            <button class="user-button">
+                <i class="fas fa-user" ></i> <!-- Font Awesome user icon -->
+            </button>
+            <div class="dropdown-content">
+                <a href="#">الملف الشخصي</a>
+                <a href="logout.php">تسجيل الخروج</a>
+            </div>
+        </div>
         <img src="images/logo.svg" class="logo">
-    </div>
+
+    </div>  
 
 
     
@@ -131,24 +132,11 @@
             <p>دليلك لتجربة سياحية ممتعة في المدينة المنورة</p>
         </div>
         <div class="headerButtons">
-            <?php
-            
-            if (isset($_SESSION["id"]) && isset($_SESSION["name"])) {
-                // User is logged in, show the user icon
-                echo '<a href="#section1"  class="priButton" type="button" >اكتشف المدينة</a>';
-            } else {
-                // User is not logged in, show login and signup buttons
-                echo '
-                        <a href="signup.php" class="priButton" type="button">التسجيل</a>
-                        <a href="login.php" class="secondButton" type="button">تسجيل دخول</a>
-                    ';
-            }
-            ?>
-
+            <a href="#section1"  class="priButton" type="button" >اكتشف المدينة</a>
         </div>
     </div>
 
-    <div class="section1" id="section1">
+    <div class="section1"  id="section1">
         <h1>معالم المدينة</h1>
         <p>اكتشف جمال التاريخ والروحانية في مدينة المدينة المنورة، حيث تتجلى معالمها الدينية والثقافية بأبهى صورها</p>
     
@@ -168,7 +156,6 @@
             <div class="content">
                 <h2>مواقع وآبار</h2>
                 <form action="sites and wells.php" method="get">
-                    <!-- This button acts as the trigger for form submission -->
                     <button type="submit">اكتشف مواقع وآبار المدينة</button>
                 </form>
                 </div>
@@ -251,7 +238,7 @@
     <div class="section3">
         <div class="section3-content">
             <p>مطاعم وكافيهات المدينة</p>
-            <h1>أحدث المطاعم</h1>
+            <h1>الأعلى تقييماً</h1>
         </div>
         
             <div class="section3-images" >
@@ -260,7 +247,7 @@
                     <div class="overlay-re"></div>
                     <div class="restaurant-info">
                         <h3>مطعم ميماز</h3>
-                        <p>التقييم: 4.7</p>
+                        <p>التقييم: 4.5</p>
                         <p>الموقع: طريق الملك عبدالله</p>
                         <a href="Memaz.php" class="read-more">
                             المزيد <i class="fas fa-chevron-left"></i>
@@ -273,7 +260,7 @@
                     <div class="overlay-re"></div>
                     <div class="restaurant-info">
                         <h3>مطعم أفنجارديا</h3>
-                        <p>التقييم: 4.1</p>
+                        <p>التقييم: 4.5</p>
                         <p>الموقع: بوليفارد قباء</p>
                         <a href="Avanguardia.php" class="read-more">
                             المزيد <i class="fas fa-chevron-left"></i>
@@ -285,7 +272,7 @@
                     <div class="overlay-re"></div>
                     <div class="restaurant-info">
                         <h3>مطعم بيت ورد</h3>
-                        <p>التقييم: 4.1</p>
+                        <p>التقييم: 4.5</p>
                         <p>الموقع: بوليفارد العروبة</p>
                         <a href="Beit Ward.php" class="read-more">
                             المزيد <i class="fas fa-chevron-left"></i>
