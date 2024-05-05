@@ -63,10 +63,11 @@
                                             echo '</div>';
                                             echo '<div class="col-md-4 quantity">';
                                             echo '<label for="quantity'.$product_id.'">الكمية:</label>';
-                                            echo '<input id="quantity'.$product_id.'" type="number" value ="'.$details['quantity'].'" class="form-control quantity-input">';
+                                            echo '<input id="quantity'.$product_id.'" type="number" value="'.$details['quantity'].'" class="form-control quantity-input" onchange="updateQuantity('.$product_id.', this.value)">'; 
                                             echo '</div>';
                                             echo '<div class="col-md-3 price">';
-                                            echo '<span>'.number_format($row['price'], 2).' SAR</span>';
+                                            echo '<span id="initial_price'.$product_id.'" style="display: none;">'.htmlspecialchars($row['price']).'</span>';
+                                            echo '<span id="price'.$product_id.'">'.number_format($row['price'] * $details['quantity'], 2).' SAR</span>';
                                             echo '</div>';
                                             echo '</div>';
                                             echo '</div>';
@@ -74,6 +75,7 @@
                                             echo '</div>';
                                             echo '</div>';
 
+                                            // Update total amount for each item
                                             $totalAmount += ($row['price'] * $details['quantity']);
                                             $totalItems += $details['quantity'];
                                         }
@@ -91,7 +93,7 @@
                     <div class="col-md-12 col-lg-4">
                         <div class="summary">
                             <h3>الملخص</h3>
-                            <div class="summary-item"><span class="text">المجموع الفرعي</span><span class="price"><?php echo number_format($totalAmount, 2); ?> SAR</span></div>
+                            <div class="summary-item"><span class="text">المجموع الفرعي</span><span id="totalAmount" class="price"><?php echo number_format($totalAmount, 2); ?> SAR</span></div>
                             <div class="summary-item"><span class="text">التخفيض</span><span class="price">0 SAR</span></div>
                             <div class="summary-item"><span class="text">الشحن</span><span class="price">25 SAR</span></div>
                             <div class="summary-item"><span the="text">المجموع</span><span class="price"><?php echo number_format($totalAmount + 25, 2); ?> SAR</span></div>
@@ -111,6 +113,26 @@
 <footer>
     <?php include "footer.php"; ?>
 </footer>
+<script>
+  function updateQuantity(productId, newValue) {
+    // Make sure newValue is a positive integer
+    newValue = Math.max(0, parseInt(newValue));
+
+    // Update the input value
+    document.getElementById('quantity' + productId).value = newValue;
+
+    // Get the initial price
+    var initialPrice = parseFloat(document.getElementById('initial_price' + productId).innerHTML);
+
+    // Update the price for this product
+    var newPrice = newValue * initialPrice;
+    document.getElementById('price' + productId).innerHTML = newPrice.toFixed(2) + ' SAR';
+
+    
+}
+
+
+</script>
 
 </body>
 </html>
