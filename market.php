@@ -161,20 +161,17 @@
                 alert(data.error);
             } else {
                 alert('Item added to cart');
-                const cartCountElement = document.querySelector('.cart-count');
-            if (cartCountElement) {
-                cartCountElement.textContent = data.cartCount;
-                console.log("Cart count updated to:", data.cartCount);
-            } else {
-                console.error('Cart count element not found in the navbar.');
-            }
+               
             }
         })
         .catch(error => console.error('Error:', error));
     }
+
+    
+    
     </script>
 
-
+    
     <footer>
         <!-- Include the footer content using PHP include -->
         <?php include "footer.php"; ?>

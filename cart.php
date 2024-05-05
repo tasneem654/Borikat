@@ -63,7 +63,7 @@
                                             echo '</div>';
                                             echo '<div class="col-md-4 quantity">';
                                             echo '<label for="quantity'.$product_id.'">الكمية:</label>';
-                                            echo '<input id="quantity'.$product_id.'" type="number" value="'.$details['quantity'].'" class="form-control quantity-input" onchange="updateQuantity('.$product_id.', this.value)">'; 
+                                            echo '<input id="quantity'.$product_id.'" type="number" value="'.$details['quantity'].'" class="form-control quantity-input" onchange="updateQuantity('.$product_id.', this.value)" data-old-value="'.$details['quantity'].'">'; 
                                             echo '</div>';
                                             echo '<div class="col-md-3 price">';
                                             echo '<span id="initial_price'.$product_id.'" style="display: none;">'.htmlspecialchars($row['price']).'</span>';
@@ -96,12 +96,13 @@
                             <div class="summary-item"><span class="text">المجموع الفرعي</span><span id="totalAmount" class="price"><?php echo number_format($totalAmount, 2); ?> SAR</span></div>
                             <div class="summary-item"><span class="text">التخفيض</span><span class="price">0 SAR</span></div>
                             <div class="summary-item"><span class="text">الشحن</span><span class="price">25 SAR</span></div>
-                            <div class="summary-item"><span the="text">المجموع</span><span class="price"><?php echo number_format($totalAmount + 25, 2); ?> SAR</span></div>
+                            <div class="summary-item"><span the="text">المجموع</span><span id="totalWithShipping" class="price"><?php echo number_format($totalAmount + 25, 2); ?> SAR</span></div>
                             <div id="paypal-container-T2UJP34KC4ETL"></div>
                                 <script
                                 src="https://www.paypal.com/sdk/js?client-id=AWnqv2ShdAyLRj8I2GYqLChZEYjaDhUyRXvTVpLL_sVehWAXW0Jwqgwy2xCmEj5nDpHhM15Oqvighoav"
                                 ></script>
                                 <script> paypal.Buttons().render("#paypal-container-T2UJP34KC4ETL"); </script>                            
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -114,24 +115,45 @@
     <?php include "footer.php"; ?>
 </footer>
 <script>
-  function updateQuantity(productId, newValue) {
-    // Make sure newValue is a positive integer
-    newValue = Math.max(0, parseInt(newValue));
+    function updateQuantity(productId, newValue) {
+        // Make sure newValue is a positive integer
+        newValue = Math.max(0, parseInt(newValue));
 
-    // Update the input value
-    document.getElementById('quantity' + productId).value = newValue;
+        // Update the input value
+        document.getElementById('quantity' + productId).value = newValue;
 
-    // Get the initial price
-    var initialPrice = parseFloat(document.getElementById('initial_price' + productId).innerHTML);
+        // Get the initial price and quantity
+        var initialPrice = parseFloat(document.getElementById('initial_price' + productId).innerHTML);
+        var oldQuantity = parseInt(document.getElementById('quantity' + productId).getAttribute('data-old-value'));
 
-    // Update the price for this product
-    var newPrice = newValue * initialPrice;
-    document.getElementById('price' + productId).innerHTML = newPrice.toFixed(2) + ' SAR';
+        // Update the price for this product
+        var newPrice = newValue * initialPrice;
+        document.getElementById('price' + productId).innerHTML = newPrice.toFixed(2) + ' SAR';
+
+        // Update the total amount and total items in the summary
+        var totalAmount = 0;
+        var totalItems = 0;
+        var items = document.getElementsByClassName('product');
+        for (var i = 0; i < items.length; i++) {
+            var priceElement = items[i].getElementsByClassName('price')[0];
+            var priceText = priceElement.textContent.trim();
+            console.log("Price Text:", priceText);
+            var price = parseFloat(priceText.replace(' SAR', '')).toFixed(1); // Round to two decimal places
+            var quantityInput = items[i].getElementsByClassName('quantity-input')[0];
+            var quantity = parseInt(quantityInput.value);
+            console.log("Price:", price, "Quantity:", quantity);
+            totalAmount += price * quantity;
+            totalItems += quantity;
+        }
+        document.getElementById('totalAmount').innerHTML = totalAmount.toFixed(2) + ' SAR';
+
+        // Update the total amount including shipping
+        var totalWithShipping = totalAmount + 25;
+        document.getElementById('totalWithShipping').innerHTML = totalWithShipping.toFixed(2) + ' SAR';
+    }
 
     
-}
-
-
+        
 </script>
 
 </body>

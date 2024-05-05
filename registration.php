@@ -61,31 +61,7 @@ CREATE TABLE IF NOT EXISTS cart (
     FOREIGN KEY (product_id) REFERENCES products(id)
 )";
 
-// Execute the SQL query to create the cart table
-if ($conn->query($sql_cart) === TRUE) {
-    echo "Table 'cart' created successfully<br>";
-} else {
-    echo "Error creating table: " . $conn->error . "<br>";
-}
 
-// Execute SQL queries
-if ($conn->query($sql_products) === TRUE) {
-    echo "Table 'products' created successfully<br>";
-} else {
-    echo "Error creating table: " . $conn->error . "<br>";
-}
-
-if ($conn->query($sql_users) === TRUE) {
-    echo "Table 'orders' created successfully<br>";
-} else {
-    echo "Error creating table: " . $conn->error . "<br>";
-}
-
-if ($conn->query($sql_order_items) === TRUE) {
-    echo "Table 'order_items' created successfully<br>";
-} else {
-    echo "Error creating table: " . $conn->error . "<br>";
-}
 
 
 // Initialize variables

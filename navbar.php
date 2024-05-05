@@ -133,7 +133,48 @@
         </div>
     </nav>
  
+    <script>
+        // Function to fetch and update cart count
+    function updateCartCount() {
+            fetch('get_cart_count.php') // Replace with the actual endpoint to fetch cart count
+                .then(response => response.json())
+                .then(data => {
+                    const cartCountElement = document.querySelector('.cart-count');
+                    if (cartCountElement) {
+                        cartCountElement.textContent = data.cartCount;
+                        console.log("Cart count updated to:", data.cartCount);
+                    } else {
+                        console.error('Cart count element not found.');
+                    }
+                })
+                .catch(error => console.error('Error fetching cart count:', error));
+        }
 
+        // Call the function when the page loads
+        window.addEventListener('load', updateCartCount);
+
+        // Function to add item to cart
+        function addToCart(productId, price) {
+            fetch('add_to_cart.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `product_id=${productId}&price=${price}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    alert('Item added to cart');
+                    // Update cart count after adding an item
+                    updateCartCount();
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
 
     
     
